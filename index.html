@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09060f">
+
+<title>NIEL STORE</title>
+
+<style>
+:root {
+    --bg: #09060f;
+    --card: #171020;
+    --purple: #8b35ed;
+    --light: #bd91ff;
+    --border: #38234c;
+    --text: #ffffff;
+    --muted: #aaa0b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(12, 8, 18, .96);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.brand span {
+    color: var(--purple);
+}
+
+.login-btn {
+    background: linear-gradient(135deg, #7025d7, #a238f4);
+    color: white;
+    border: none;
+    border-radius: 13px;
+    padding: 13px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* MAIN */
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 35px 4%;
+}
+
+/* LOGO BANNER */
+
+.logo-section {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 25px;
+    border: 1px solid #7134b8;
+    background: #09060f;
+    box-shadow: 0 0 25px rgba(139, 53, 237, .12);
+    margin-bottom: 65px;
+}
+
+.logo-section img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* CATALOG */
+
+.section-label {
+    color: var(--light);
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: 34px;
+    margin-bottom: 30px;
+}
+
+/* SEARCH */
+
+.search-box {
+    width: 100%;
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 22px;
+}
+
+.search-box:focus {
+    border-color: var(--purple);
+}
+
+/* FILTER */
+
+.filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 12px 23px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.filter-btn.active {
+    background: var(--purple);
+    border-color: var(--purple);
+}
+
+/* PRODUCTS */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 23px;
+    border-radius: 20px;
+    transition: .25s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple);
+    box-shadow: 0 5px 25px rgba(139,53,237,.15);
+}
+
+.product-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(139,53,237,.15);
+    border-radius: 14px;
+    font-size: 23px;
+    margin-bottom: 18px;
+}
+
+.product-card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.category {
+    display: inline-block;
+    padding: 7px 12px;
+    background: rgba(139,53,237,.15);
+    border: 1px solid var(--border);
+    color: var(--light);
+    border-radius: 20px;
+    font-size: 11px;
+    margin-bottom: 18px;
+}
+
+.order-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7025d7, #a238f4);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* EMPTY */
+
+.empty {
+    grid-column: 1 / -1;
+    padding: 40px 15px;
+    text-align: center;
+    color: var(--muted);
+    border: 1px dashed var(--border);
+    border-radius: 18px;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid var(--border);
+    margin-top: 80px;
+    padding: 30px 15px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 20;
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+    padding: 15px 19px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 5px 20px #0008;
+}
+
+/* MOBILE */
+
+@media(max-width: 750px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .product-card {
+        padding: 15px;
+    }
+
+    .product-card h3 {
+        font-size: 15px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    main {
+        padding: 25px 4%;
+    }
+
+    .logo-section {
+        border-radius: 20px;
+        margin-bottom: 45px;
+    }
+}
+
+@media(max-width: 380px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="brand">
+        NIEL <span>STORE</span>
+    </div>
+
+    <button class="login-btn" onclick="loginInfo()">
+        Masuk
+    </button>
+</header>
+
+<main>
+
+    <!-- LOGO -->
+    <section class="logo-section">
+        <img src="logo.png" alt="NIEL STORE">
+    </section>
+
+    <!-- CATALOG -->
+
+    <section id="products">
+
+        <p class="section-label">OFFICIAL CATALOG</p>
+
+        <h1 class="section-title">Daftar Produk</h1>
+
+        <input
+            type="text"
+            id="search"
+            class="search-box"
+            placeholder="⌕ Cari produk..."
+            oninput="renderProducts()"
+        >
+
+        <!-- FILTER -->
+
+        <div class="filters">
+
+            <button class="filter-btn active"
+                onclick="setFilter('Semua', this)">
+                Semua
+            </button>
+
+            <button class="filter-btn"
+                onclick="setFilter('iOS', this)">
+                iOS
+            </button>
+
+            <button class="filter-btn"
+                onclick="setFilter('Root', this)">
+                Root
+            </button>
+
+            <button class="filter-btn"
+                onclick="setFilter('Non Root', this)">
+                Non Root
+            </button>
+
+        </div>
+
+        <!-- PRODUCT LIST -->
+
+        <div class="product-grid" id="productGrid"></div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 NIEL STORE
+    <br><br>
+    Official Digital Store
+</footer>
+
+<a class="whatsapp"
+   href="https://wa.me/6285194336082"
+   target="_blank">
+   WhatsApp
+</a>
+
+<script>
+
+/* PRODUCT DATABASE
+   Edit daftar produk di bagian ini.
+*/
+
+const products = [
+    {
+        name: "Velora External iOS",
+        category: "iOS",
+        icon: "🍎"
+    },
+    {
+        name: "0704 iOS",
+        category: "iOS",
+        icon: "📱"
+    },
+    {
+        name: "Delta Proxy iOS",
+        category: "iOS",
+        icon: "🍎"
+    },
+    {
+        name: "Cloud CODM iOS",
+        category: "iOS",
+        icon: "🎮"
+    },
+    {
+        name: "Rapid Core Root",
+        category: "Root",
+        icon: "⚡"
+    },
+    {
+        name: "Pato Orange",
+        category: "Non Root",
+        icon: "🟠"
+    },
+    {
+        name: "HG Proxy Prime",
+        category: "Non Root",
+        icon: "🛡️"
+    },
+    {
+        name: "Drip Wire",
+        category: "Non Root",
+        icon: "🔗"
+    },
+    {
+        name: "XREG",
+        category: "Non Root",
+        icon: "💠"
+    }
+];
+
+let currentFilter = "Semua";
+
+/* FILTER */
+
+function setFilter(category, button) {
+
+    currentFilter = category;
+
+    document.querySelectorAll(".filter-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    renderProducts();
+}
+
+/* DISPLAY PRODUCTS */
+
+function renderProducts() {
+
+    const search = document
+        .getElementById("search")
+        .value.toLowerCase();
+
+    const grid = document.getElementById("productGrid");
+
+    const filtered = products.filter(product => {
+
+        const matchName = product.name
+            .toLowerCase()
+            .includes(search);
+
+        const matchCategory =
+            currentFilter === "Semua" ||
+            product.category === currentFilter;
+
+        return matchName && matchCategory;
+    });
+
+    if (filtered.length === 0) {
+
+        grid.innerHTML = `
+            <div class="empty">
+                Produk tidak ditemukan.
+            </div>
+        `;
+
+        return;
+    }
+
+    grid.innerHTML = filtered.map(product => `
+
+        <article class="product-card">
+
+            <div class="product-icon">
+                ${product.icon}
+            </div>
+
+            <h3>${escapeHTML(product.name)}</h3>
+
+            <span class="category">
+                ${escapeHTML(product.category)}
+            </span>
+
+            <button class="order-btn"
+                onclick="orderProduct('${encodeURIComponent(product.name)}')">
+                Tanya Produk
+            </button>
+
+        </article>
+
+    `).join("");
+}
+
+/* SAFE TEXT */
+
+function escapeHTML(value) {
+    return value.replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[char]);
+}
+
+/* ORDER */
+
+function orderProduct(name) {
+
+    const product = decodeURIComponent(name);
+
+    const message = encodeURIComponent(
+        "Halo NIEL STORE, saya ingin bertanya tentang produk " + product
+    );
+
+    window.open(
+        "https://wa.me/6285194336082?text=" + message,
+        "_blank"
+    );
+}
+
+/* LOGIN */
+
+function loginInfo() {
+    alert(
+        "Login Google akan diaktifkan setelah konfigurasi OAuth dan backend selesai."
+    );
+}
+
+/* INITIALIZE */
+
+renderProducts();
+
+</script>
+
+</body>
+</html>
